@@ -1,1 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+
 @import "tailwindcss";
+
+@theme{
+    --color-primary: #000000;
+    --color-secondary: #2b2b2b;
+    --color-text-base: #ffffff;
+    --color-bg-primary: #ffffff;
+    --font-body: "Inter", serif;
+
+    
+    
+}
+
+*{
+    @apply transition-all duration-100 ease-in-out;
+}
+.mode-dark{
+    --color-bg-primary: #3b3b3b;
+    --color-text-base: #f3f3f3;
+}
+
+.mode-light{
+    --color-bg-primary: #f3f3f3;
+    --color-text-base: #3b3b3b;
+}
+
+.theme-yellow{
+    --color-primary: #FFBF00;
+    --color-secondary: #b88a00;
+}
+
+.theme-purple{
+    --color-primary: #7734db;
+    --color-secondary: #5c28aa;
+}
+
+.theme-blue{
+    --color-primary: #6495ED;
+    --color-secondary: #415f97;
+}
+
+.theme-orange{
+    --color-primary: #FF7F50;
+    --color-secondary: #c55f39;
+}
+
+.theme-red{
+    --color-primary: #DE3163;
+    --color-secondary: #a52549;
+}
+
+.font-inter{
+    --font-body: "Inter", serif;
+}
+
+.font-roboto{
+    --font-body: "Roboto", serif;
+}
+
+.font-poppins{
+    --font-body: "Poppins", serif;
+}
+
+.font-lato{
+    --font-body: "Lato", serif;
+}
+
+.font-nunito{
+    --font-body: "Nunito", serif;
+}
