@@ -49,7 +49,7 @@ function App() {
         <Route path='/auth/forgot-password' element={<Authentication><ForgotPassword/></Authentication>}/>
         <Route path='/auth/sign-up' element={<Authentication><Register/></Authentication>}/>
         <Route path='/auth/reset-password' element={<Authentication><ResetPassword/></Authentication>}/>
-        <Route path='/auth/verify/:slug' element={<Authentication><VerifyEmail/></Authentication>}/>
+        <Route path='/auth/verify/:token' element={<Authentication><VerifyEmail/></Authentication>}/>
         
 
 
