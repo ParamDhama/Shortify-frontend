@@ -10,6 +10,11 @@ import Navbar from './components/Miscellaneous/Navbar'
 import Settings from './components/Miscellaneous/Settings'
 import ChangePassword from './components/Miscellaneous/ChangePassword'
 import Profile from './components/Miscellaneous/Profile'
+import Login from './components/Authentication/Login'
+import Register from './components/Authentication/Register'
+import VerifyEmail from './components/Authentication/VerifyEmail'
+import ResetPassword from './components/Authentication/ResetPassword'
+import ForgotPassword from './components/Authentication/ForgotPassword'
 
 const isAuthenticated = () => {
   return false;
@@ -32,17 +37,26 @@ function App() {
     <Router>
       <Navbar/>
       <Routes>
+
         {/* Route for all */}
         <Route path='/' element={<Home />}/>
-        <Route path='/auth' element={<NotFound/>}/>
-        <Route path='/auth/verify' element={<NotFound/>}/>
-        <Route path='/auth/*' element={<Authentication/>}/>
-        <Route path='/:slug' element={<Redirect/>}/>
 
-        {/* Route Only for Admin */}
+        {/* Routes for Redirect to main website */}
+        <Route path='/redirect/:slug' element={<Redirect/>}/>
+
+        {/* Routes for Authetication */}
+        <Route path='/auth/login' element={<Authentication><Login/></Authentication>}/>
+        <Route path='/auth/forgot-password' element={<Authentication><ForgotPassword/></Authentication>}/>
+        <Route path='/auth/sign-up' element={<Authentication><Register/></Authentication>}/>
+        <Route path='/auth/reset-password' element={<Authentication><ResetPassword/></Authentication>}/>
+        <Route path='/auth/verify/:slug' element={<Authentication><VerifyEmail/></Authentication>}/>
+        
+
+
+        {/* Routes for Admin */}
         <Route path='/admin' element={<ProtectedRoute element={<Admin/>} isAdminRequired={true}/>} />
     
-        {/* Route Only for verified user */}
+        {/* Routes for verified user */}
         <Route path='/user/:username/dashboard' element={<ProtectedRoute element={<Dashboard/>} isAdminRequired={false}/>}/>
         <Route path='/user/:username/settings' element={<ProtectedRoute element={<Settings/>} isAdminRequired={false}/>}/>
         <Route path='/user/:username/change-password' element={<ProtectedRoute element={<ChangePassword/>} isAdminRequired={false}/>}/>

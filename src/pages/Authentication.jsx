@@ -1,22 +1,13 @@
-import {Routes,Route} from 'react-router-dom'
-import Login from '../components/Authentication/Login'
-import Register from '../components/Authentication/Register'
-import VerifyEmail from '../components/Authentication/VerifyEmail'
-import ForgetPassword from '../components/Authentication/ForgotPassword'
-import ResetPassword from '../components/Authentication/ResetPassword'
+/* eslint-disable react/prop-types */
 
 
-function Authentication() {
+
+
+function Authentication({children}) {
   return (
     <div>
       Authentication
-      <Routes>
-        <Route path='login' element={<Login/>}/>
-        <Route path='sign-up' element={<Register/>}/>
-        <Route path='verify/:slug' element={<VerifyEmail/>}/>
-        <Route path='forget-password' element={<ForgetPassword/>}/>
-        <Route path="reset-password" element={<ResetPassword/>}/>
-      </Routes>
+      {children}
     </div>
   )
 }
