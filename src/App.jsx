@@ -57,10 +57,10 @@ function App() {
         <Route path='/admin' element={<ProtectedRoute element={<Admin/>} isAdminRequired={true}/>} />
     
         {/* Routes for verified user */}
-        <Route path='/user/:username/dashboard' element={<ProtectedRoute element={<Dashboard/>} isAdminRequired={false}/>}/>
-        <Route path='/user/:username/settings' element={<ProtectedRoute element={<Settings/>} isAdminRequired={false}/>}/>
-        <Route path='/user/:username/change-password' element={<ProtectedRoute element={<ChangePassword/>} isAdminRequired={false}/>}/>
-        <Route path='/user/:username/profile' element={<ProtectedRoute element={<Profile/>} isAdminRequired={false}/>}/>
+        <Route path='/user/dashboard' element={<ProtectedRoute element={<Dashboard/>} isAdminRequired={false}/>}/>
+        <Route path='/user/settings' element={<ProtectedRoute element={<Settings/>} isAdminRequired={false}/>}/>
+        <Route path='/user/change-password' element={<ProtectedRoute element={<ChangePassword/>} isAdminRequired={false}/>}/>
+        <Route path='/user/profile' element={<ProtectedRoute element={<Profile/>} isAdminRequired={false}/>}/>
 
         {/* Default Route for 404 */}
         <Route path='*' element={<NotFound/>}/>

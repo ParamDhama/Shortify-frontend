@@ -16,10 +16,10 @@
 
 
 ### User Dashboard
-- **Dashboard** - `/user/:username`
-  - **Profile** - `/user/:username/profile`
-  - **Settings** - `/user/:username/settings`
-  - **Change Password** - `/user/:username/change-password`
+- **Dashboard** - `/user/dashboard`
+  - **Profile** - `/user/profile`
+  - **Settings** - `/user/settings`
+  - **Change Password** - `/user/change-password`
 
 
 ### Admin Panel
