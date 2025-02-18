@@ -1,9 +1,7 @@
-import React from 'react'
-
 function ShortenUrl() {
   return (
     <div>
-      
+      ShortenUrl
     </div>
   )
 }
