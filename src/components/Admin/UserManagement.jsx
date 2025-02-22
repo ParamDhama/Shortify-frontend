@@ -6,18 +6,6 @@ import { jwtDecode } from "jwt-decode";
 function UserManagement() {
   const [users, setUsers] = useState([]);
 
-  // useEffect(() => {
-  //   const fetchUsers = async () => {
-  //     try {
-  //       const res = await apiClient.get(endpoints.admin.GET_USERS);
-  //       setUsers(res.data || []);
-  //     } catch (error) {
-  //       console.error("Error fetching users:", error);
-  //     }
-  //   };
-
-  //   fetchUsers();
-  // }, []);
 
   useEffect(() => {
     const fetchData = async () => {
