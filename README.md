@@ -4,13 +4,13 @@
 
 ### Public Pages
 - **Home** - `/`
-- **Redirect** - `/:slug`
+- **Redirect** - `/redirect/:slug`
 
 ### Authentication
 - **Login** - `/auth/login`
 - **Sign Up** - `/auth/sign-up`
 - **Forgot Password** - `/auth/forgot-password`
-- **Reset Password** - `/auth/reset-password`
+- **Reset Password** - `/auth/reset-password/:token`
 - **Verify Email** - `/auth/verify/:slug`
 
 
