@@ -5,10 +5,10 @@ import useInput from "../../hooks/useInput";
 import apiClient from "../../api/apiClient";
 import endpoints from "../../api/endpoints";
 
-function ForgotPassword() {
+const ResendVerify = () => {
   const { input, handleChange, setInput } = useInput();
   const [message, setMessage] = useState("");
-  const [loading, setLoading] = useState(false); // Loading state
+  const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -16,17 +16,27 @@ function ForgotPassword() {
     setMessage("");
 
     try {
-      const res = await apiClient.post(endpoints.auth.FORGOT_PASS, { email: input.email });
+      const res = await apiClient.post(endpoints.auth.RESEND_VERIFY, { email: input.email });
 
-      if (res.data.message === "Password reset email sent. Check your inbox.") {
-        setMessage("✅ Password reset email sent. Check your inbox.");
+      if (res.data.message === "Verification email sent. Check your inbox.") {
+        setMessage("✅ Verification email sent. Check your inbox.");
         setInput({});
       } else {
         setMessage("❌ User not found.");
       }
     } catch (err) {
       console.error(err);
-      setMessage("❌ User not found.");
+
+      // Handle specific error messages from server
+      if (err.response && err.response.data && err.response.data.message) {
+        if (err.response.data.message === "User is already verified") {
+          setMessage("✅ Your email is already verified. You can log in.");
+        } else {
+          setMessage(`❌ ${err.response.data.message}`);
+        }
+      } else {
+        setMessage("❌ Something went wrong. Please try again.");
+      }
     } finally {
       setLoading(false);
     }
@@ -40,8 +50,17 @@ function ForgotPassword() {
         transition={{ duration: 0.6 }}
         className="w-full md:w-1/2 flex flex-col justify-center items-center bg-white p-8"
       >
-        <h2 className="text-2xl font-bold">Forgot Your Password?</h2>
-        <p className="text-gray-600">Enter your email, and we&apos;ll send you a reset link.</p>
+        {/* Animated Email Icon */}
+        <motion.div
+          animate={{ y: [0, -10, 0] }}
+          transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
+          className="text-[#0c5643] mb-4"
+        >
+          <FaEnvelope className="text-6xl" />
+        </motion.div>
+
+        <h2 className="text-2xl font-bold">Resend Verification Email</h2>
+        <p className="text-gray-600 mt-2">Enter your email to receive a new verification link.</p>
 
         {message && (
           <p className={`mt-2 ${message.includes("✅") ? "text-green-500" : "text-red-500"}`}>
@@ -49,10 +68,9 @@ function ForgotPassword() {
           </p>
         )}
 
+        {/* Form */}
         <form onSubmit={handleSubmit} className="w-full max-w-sm mt-6">
-          {/* Email Input */}
           <div className="relative w-full mb-4">
-            <FaEnvelope className="absolute left-3 top-4 text-gray-400" />
             <input
               type="email"
               name="email"
@@ -60,11 +78,10 @@ function ForgotPassword() {
               value={input.email || ""}
               onChange={handleChange}
               required
-              className="w-full pl-10 p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#0c5643]"
+              className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#0c5643]"
             />
           </div>
 
-          {/* Send Reset Link Button */}
           <motion.button
             type="submit"
             whileHover={{ scale: 1.05 }}
@@ -74,13 +91,13 @@ function ForgotPassword() {
             } text-white font-bold py-3 rounded-lg mt-4 transition duration-300`}
             disabled={loading}
           >
-            {loading ? "Sending..." : "Send Reset Link"}
+            {loading ? "Sending..." : "Resend Verification"}
           </motion.button>
         </form>
 
         {/* Back to Login */}
         <p className="text-gray-500 mt-6">
-          Remember your password?{" "}
+          Already verified?{" "}
           <a href="/auth/login" className="text-[#0c5643] font-semibold hover:underline">
             Log in here!
           </a>
@@ -88,6 +105,6 @@ function ForgotPassword() {
       </motion.div>
     </>
   );
-}
+};
 
-export default ForgotPassword;
+export default ResendVerify;
