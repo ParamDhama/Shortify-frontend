@@ -6,7 +6,6 @@ import Dashboard from './pages/Dashboard';
 import Redirect from './pages/Redirect';
 import Admin from './pages/Admin';
 import Authentication from './pages/Authentication';
-// import Navbar from './components/Miscellaneous/Navbar';
 import Settings from './components/Miscellaneous/Settings';
 import ChangePassword from './components/Miscellaneous/ChangePassword';
 import Profile from './components/Miscellaneous/Profile';
@@ -21,7 +20,6 @@ import ProtectedRoute from './components/Miscellaneous/ProtectedRoute'; // Impor
 function App() {
   return (
     <Router>
-      {/* <Navbar /> */}
       <Routes>
         {/* Public Routes */}
         <Route path='/' element={<Home />} />
