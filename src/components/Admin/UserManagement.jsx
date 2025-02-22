@@ -1,102 +1,115 @@
 import { useEffect, useState } from "react";
 import apiClient from "../../api/apiClient";
 import endpoints from "../../api/endpoints";
+import { jwtDecode } from "jwt-decode";
 
-function UrlManagement() {
-  const [urls, setUrls] = useState([]);
-  const [userId, setUserId] = useState(""); // Store the user ID for filtering URLs
-  const [loading, setLoading] = useState(false);
+function UserManagement() {
+  const [users, setUsers] = useState([]);
+
+  // useEffect(() => {
+  //   const fetchUsers = async () => {
+  //     try {
+  //       const res = await apiClient.get(endpoints.admin.GET_USERS);
+  //       setUsers(res.data || []);
+  //     } catch (error) {
+  //       console.error("Error fetching users:", error);
+  //     }
+  //   };
+
+  //   fetchUsers();
+  // }, []);
 
   useEffect(() => {
-    if (userId) {
-      fetchUserUrls(userId);
-    }
-  }, [userId]);
-
-  // 🔹 Fetch URLs for a specific user
-  const fetchUserUrls = async (id) => {
+    const fetchData = async () => {
+      try {
+        const token = localStorage.getItem("token");
+        if (token) {
+          const decodedToken = jwtDecode(token);
+          const expiryDate = new Date(decodedToken.exp * 1000);
+          if (expiryDate > new Date()) {
+            apiClient.defaults.headers["Authorization"] = `Bearer ${token}`;
+          } else {
+            localStorage.removeItem("token");
+          }
+        }
+  
+        const res = await apiClient.get(endpoints.admin.GET_USERS);
+        
+        if (res.data?.users) {
+          setUsers(res.data.users); // ✅ Ensure only the `users` array is set
+        } else {
+          setUsers([]); // If no users found, set an empty array
+        }
+      } catch (error) {
+        console.error("Failed to fetch users:", error);
+        setUsers([]); // Handle error by ensuring `users` stays an array
+      }
+    };
+  
+    fetchData();
+  }, []);
+  
+  // Change User Role
+  const changeUserRole = async (userId, newRole) => {
     try {
-      setLoading(true);
-      const res = await apiClient.get(endpoints.admin.GET_USER(id));
-      setUrls(res.data || []);
+      await apiClient.put(endpoints.admin.PUT_ROLE, { userId, role: newRole });
+      alert("User role updated");
     } catch (error) {
-      console.error("Error fetching user URLs:", error);
-    } finally {
-      setLoading(false);
+      console.error("Error updating role:", error);
     }
   };
 
-  // 🔹 Restore a soft-deleted URL
-  const restoreUrl = async (urlId) => {
+  // Ban/Unban User
+  const toggleBanUser = async (userId) => {
     try {
-      await apiClient.put(endpoints.admin.PUT_RESTORE_URL, { urlId });
-      alert("URL restored successfully!");
-      fetchUserUrls(userId); // Refresh list after restoring
+      await apiClient.put(endpoints.admin.PUT_BAN(userId));
+      alert("User status updated");
     } catch (error) {
-      console.error("Error restoring URL:", error);
+      console.error("Error updating ban status:", error);
     }
   };
 
-  // 🔹 Delete a URL permanently
-  const deleteUrl = async (urlId) => {
+  // Delete User
+  const deleteUser = async (userId) => {
     try {
-      await apiClient.delete(endpoints.admin.DELETE_URL, { data: { urlId } });
-      alert("URL deleted successfully!");
-      fetchUserUrls(userId); // Refresh list after deletion
+      await apiClient.delete(endpoints.admin.DELETE_USER(userId));
+      alert("User deleted");
     } catch (error) {
-      console.error("Error deleting URL:", error);
+      console.error("Error deleting user:", error);
     }
   };
 
   return (
     <div>
-      <h2>URL Management</h2>
-
-      {/* Input for Admin to Enter User ID */}
-      <div>
-        <label>Enter User ID: </label>
-        <input
-          type="text"
-          value={userId}
-          onChange={(e) => setUserId(e.target.value)}
-          placeholder="Enter user ID..."
-        />
-        <button onClick={() => fetchUserUrls(userId)}>Fetch URLs</button>
-      </div>
-
-      {/* Loading Indicator */}
-      {loading && <p>Loading URLs...</p>}
-
-      {/* Table for Displaying URLs */}
-      <table border="1">
+      <h2>User Management</h2>
+      <table>
         <thead>
           <tr>
             <th>ID</th>
-            <th>Short URL</th>
-            <th>Original URL</th>
+            <th>Name</th>
+            <th>Role</th>
             <th>Actions</th>
           </tr>
         </thead>
         <tbody>
-          {urls.length > 0 ? (
-            urls.map((url) => (
-              <tr key={url.id}>
-                <td>{url.id}</td>
+          {users.length > 0 ? (
+            users.map((user) => (
+              <tr key={user.id}>
+                <td>{user._id}</td>
+                <td>{user.name}</td>
+                <td>{user.role}</td>
                 <td>
-                  <a href={url.shortUrl} target="_blank" rel="noopener noreferrer">
-                    {url.shortUrl}
-                  </a>
-                </td>
-                <td>{url.originalUrl}</td>
-                <td>
-                  <button onClick={() => restoreUrl(url.id)}>Restore</button>
-                  <button onClick={() => deleteUrl(url.id)}>Delete</button>
+                  <button onClick={() => changeUserRole(user.id, "admin")}>Make Admin</button>
+                  <button onClick={() => toggleBanUser(user.id)}>
+                    {user.isBanned ? "Unban" : "Ban"}
+                  </button>
+                  <button onClick={() => deleteUser(user.id)}>Delete</button>
                 </td>
               </tr>
             ))
           ) : (
             <tr>
-              <td colSpan="4">No URLs available</td>
+              <td colSpan="4">No users found</td>
             </tr>
           )}
         </tbody>
@@ -105,4 +118,4 @@ function UrlManagement() {
   );
 }
 
-export default UrlManagement;
+export default UserManagement;

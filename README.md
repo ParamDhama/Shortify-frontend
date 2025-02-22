@@ -12,6 +12,7 @@
 - **Forgot Password** - `/auth/forgot-password`
 - **Reset Password** - `/auth/reset-password/:token`
 - **Verify Email** - `/auth/verify/:slug`
+- **Resend Email Verify** - `/auth/resend-verify`
 
 
 

@@ -6,7 +6,7 @@ import Dashboard from './pages/Dashboard';
 import Redirect from './pages/Redirect';
 import Admin from './pages/Admin';
 import Authentication from './pages/Authentication';
-import Navbar from './components/Miscellaneous/Navbar';
+// import Navbar from './components/Miscellaneous/Navbar';
 import Settings from './components/Miscellaneous/Settings';
 import ChangePassword from './components/Miscellaneous/ChangePassword';
 import Profile from './components/Miscellaneous/Profile';
@@ -15,12 +15,13 @@ import Register from './components/Authentication/Register';
 import VerifyEmail from './components/Authentication/VerifyEmail';
 import ResetPassword from './components/Authentication/ResetPassword';
 import ForgotPassword from './components/Authentication/ForgotPassword';
+import ResendVerify from './components/Authentication/ResendVerify';
 import ProtectedRoute from './components/Miscellaneous/ProtectedRoute'; // Importing correctly
 
 function App() {
   return (
     <Router>
-      <Navbar />
+      {/* <Navbar /> */}
       <Routes>
         {/* Public Routes */}
         <Route path='/' element={<Home />} />
@@ -32,6 +33,7 @@ function App() {
         <Route path='/auth/sign-up' element={<Authentication><Register /></Authentication>} />
         <Route path='/auth/reset-password/:token' element={<Authentication><ResetPassword /></Authentication>} />
         <Route path='/auth/verify/:token' element={<Authentication><VerifyEmail /></Authentication>} />
+        <Route path='/auth/resend-verify' element={<Authentication><ResendVerify/></Authentication>}/>
 
         {/* Admin Routes */}
         <Route path='/admin' element={<ProtectedRoute isAdminRequired={true} element={<Admin />} />} />
