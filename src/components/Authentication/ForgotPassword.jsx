@@ -44,7 +44,7 @@ function ForgotPassword() {
         <p className="text-gray-600">Enter your email, and we&apos;ll send you a reset link.</p>
 
         {message && (
-          <p className={`mt-2 ${message.includes("✅") ? "text-green-500" : "text-red-500"}`}>
+          <p className={`mt-2 ${message.includes("✅") ? "text-primary" : "text-red-500"}`}>
             {message}
           </p>
         )}

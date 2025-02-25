@@ -90,7 +90,7 @@ function Login() {
 
           {/* Forgot Password */}
           <div className="flex justify-end text-sm">
-            <a href="/auth/forgot-password" className="text-[#0c5643] hover:underline">
+            <a href="/auth/forgot-password" className="text-primary hover:underline">
               Forgot Password?
             </a>
           </div>
@@ -100,7 +100,7 @@ function Login() {
             type="submit"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="w-full bg-[#0c5643] text-white font-bold py-3 rounded-lg mt-4 hover:bg-[#094d39] transition duration-300"
+            className="w-full bg-primary text-white font-bold py-3 rounded-lg mt-4 hover:bg-secondary transition duration-300"
           >
             Login
           </motion.button>
