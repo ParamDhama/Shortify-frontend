@@ -6,6 +6,17 @@ function LinkItem({ link, handleDelete }) {
   const handleCopy = () => {
     navigator.clipboard.writeText(`${window.location.origin}/redirect/${link.slug}`);
   };
+  const handleDownloadQR = () => {
+    const items = link;
+    if (!items?.qrCode) return;
+    const linkURI = document.createElement("a");
+    linkURI.href = items.qrCode;
+    linkURI.download = `QR.png`;
+    document.body.appendChild(linkURI);
+    linkURI.click();
+    document.body.removeChild(linkURI);
+  };
+
 
   return (
     <div className="bg-white border border-gray-200 rounded-lg p-4 shadow-sm w-full">
@@ -45,6 +56,7 @@ function LinkItem({ link, handleDelete }) {
           </button>
 
           <button 
+            onClick={handleDownloadQR}
             className="bg-primary text-white py-1 px-3 rounded-md flex items-center text-sm space-x-2 hover:bg-secondary"
           >
             <FaDownload /> <span>Download</span>

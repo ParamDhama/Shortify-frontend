@@ -13,6 +13,31 @@
     
     
 }
+/* Custom Scrollbar Styles */
+::-webkit-scrollbar {
+    width: 6px; /* Width of the scrollbar */
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: #0c5643; /* Deep green track */
+    border-radius: 10px;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #087056, #0c5643); /* Green gradient */
+    border-radius: 10px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #0c5643, #0f3d33); /* Darker green on hover */
+  }
+  
+  /* For Firefox */
+  * {
+    scrollbar-color: #0c5643 none; /* Thumb (green) | Track (light greenish) */
+    scrollbar-width: thin; /* Slim scrollbar */
+  }
+    
 
 *{
     @apply transition-all duration-100 ease-in-out;

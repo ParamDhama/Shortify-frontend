@@ -5,9 +5,6 @@ import NotFound from "./pages/NotFound";
 import Redirect from "./pages/Redirect";
 import Admin from "./pages/Admin";
 import Authentication from "./pages/Authentication";
-import Settings from "./components/Miscellaneous/Settings";
-import ChangePassword from "./components/Miscellaneous/ChangePassword";
-import Profile from "./components/Miscellaneous/Profile";
 import Login from "./components/Authentication/Login";
 import Register from "./components/Authentication/Register";
 import VerifyEmail from "./components/Authentication/VerifyEmail";
@@ -38,9 +35,6 @@ function App() {
 
         {/* User Routes */}
         <Route path="/user/dashboard/*" element={<ProtectedRoute isAdminRequired={false} element={<DashboardRoutes />} />} />
-        <Route path="/user/settings" element={<ProtectedRoute isAdminRequired={false} element={<Settings />} />} />
-        <Route path="/user/change-password" element={<ProtectedRoute isAdminRequired={false} element={<ChangePassword />} />} />
-        <Route path="/user/profile" element={<ProtectedRoute isAdminRequired={false} element={<Profile />} />} />
 
         {/* 404 Route */}
         <Route path="*" element={<NotFound />} />
