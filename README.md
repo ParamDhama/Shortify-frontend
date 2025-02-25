@@ -1,7 +1,11 @@
 
 <h1 align="center">🚀 Shortify Frontend</h1>  
 <p align="center">A sleek, modern, and responsive URL shortener built with React, Tailwind CSS, and Framer Motion.</p>  
-
+<div align=center>
+<strong>🔗 Frontend Repository:</strong><a href="https://github.com/ParamDhama/shortify-frontend.git" type="blank">Github</a><br>
+<strong>🖥️ Backend Repository:</strong><a href="https://github.com/ParamDhama/shortify-backend.git" type="blank">Github</a><br>
+<strong>✅ API Endpoints and testing:</strong><a href="https://documenter.getpostman.com/view/38259618/2sAYXEEJXh" type="blank">Postman Docs</a>
+</div>
 <p align="center">
   <img src="https://img.shields.io/badge/React-19.0.0-blue?style=flat-square">
   <img src="https://img.shields.io/badge/TailwindCSS-4.0.6-blueviolet?style=flat-square">
