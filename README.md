@@ -1,110 +1,107 @@
-# Shortify Frontend
 
-Welcome to the Shortify Frontend project! This application provides a user-friendly interface for shortening URLs, managing your links, and accessing related features. Built with modern web technologies, it ensures a seamless and efficient user experience.
+<h1 align="center">🚀 Shortify Frontend</h1>  
+<p align="center">A sleek, modern, and responsive URL shortener built with React, Tailwind CSS, and Framer Motion.</p>  
 
-## Table of Contents
+<p align="center">
+  <img src="https://img.shields.io/badge/React-19.0.0-blue?style=flat-square">
+  <img src="https://img.shields.io/badge/TailwindCSS-4.0.6-blueviolet?style=flat-square">
+  <img src="https://img.shields.io/badge/FramerMotion-12.4.7-orange?style=flat-square">
+  <img src="https://img.shields.io/badge/License-MIT-green?style=flat-square">
+</p>  
 
-- [Screenshots](#screenshots)
-- [Features](#features)
-- [Technologies Used](#technologies-used)
-- [Getting Started](#getting-started)
-  - [Prerequisites](#prerequisites)
-  - [Installation](#installation)
-  - [Running the Application](#running-the-application)
-- [Project Structure](#project-structure)
-- [Routes and Pages](#routes-and-pages)
-- [Components Overview](#components-overview)
-- [API Integration](#api-integration)
-- [Authentication and Authorization](#authentication-and-authorization)
-- [Error Handling](#error-handling)
-- [Styling](#styling)
-- [Contributing](#contributing)
-- [License](#license)
+---
 
-## Screenshots
-Here are some UI previews of Shortify-frontend:
+## 📌 Table of Contents  
+- [📸 Screenshots](#-screenshots)  
+- [✨ Features](#-features)  
+- [🛠 Technologies Used](#-technologies-used)  
+- [🚀 Getting Started](#-getting-started)  
+  - [🔹 Prerequisites](#-prerequisites)  
+  - [🔹 Installation](#-installation)  
+  - [🔹 Running the Application](#-running-the-application)  
+- [📂 Project Structure](#-project-structure)  
+- [🌍 Routes and Pages](#-routes-and-pages)  
+- [🔧 API Integration](#-api-integration)  
+- [🔑 Authentication and Authorization](#-authentication-and-authorization)  
+- [⚠️ Error Handling](#-error-handling)  
+- [🎨 Styling](#-styling)  
+- [🤝 Contributing](#-contributing)  
+- [📜 License](#-license)  
 
-### Shortify Home Page
-![Shortify Home](./screenshots/Home.png)
+---
 
-### Shortify Login Page
-![Shortify Login](./screenshots/Login.png)
+## 📸 Screenshots  
+Here are some UI previews of **Shortify-frontend**:  
 
+### 🏠 Home Page  
+<img src="./screenshots/Home.png" width="80%">  
 
+### 🔐 Login Page  
+<img src="./screenshots/Login.png" width="80%">  
 
-## Features
+### ✍️ Register Page  
+<img src="./screenshots/Sign_up.png" width="80%">  
 
-- **URL Shortening**: Convert long URLs into concise, shareable links.
-- **Link Management**: View, edit, and delete your shortened URLs.
-- **User Authentication**: Secure login and registration system.
-- **Dashboard**: Access a personalized dashboard with your link statistics.
-- **Admin Panel**: Manage users and oversee application metrics (admin only).
-- **Responsive Design**: Optimized for various devices and screen sizes.
+### 🔗 Manage Links Page  
+<img src="./screenshots/Links_Manage.png" width="80%">  
 
-## Technologies Used
+### ⚙️ Settings Page  
+<img src="./screenshots/Setting.png" width="80%">  
 
-- **Frontend**: React.js, Vite, Tailwind CSS
-- **State Management**: React Hooks, Context API
-- **Routing**: React Router
-- **HTTP Client**: Axios
-- **Animations**: Framer Motion
-- **Form Handling**: React Hook Form
-- **Validation**: Yup
-- **Icons**: React Icons
+---
 
-## Getting Started
+## ✨ Features  
 
-Follow these instructions to set up and run the project locally.
+✅ **URL Shortening** – Convert long URLs into short, shareable links  
+✅ **Link Management** – View, edit, and delete your links easily  
+✅ **User Authentication** – Secure login, registration, and password management  
+✅ **Personalized Dashboard** – Track analytics and manage links in one place  
+✅ **QR Code Generation** – Generate QR codes for each shortened URL  
+✅ **Admin Panel** – Manage users and monitor system performance  
+✅ **Mobile Responsive** – Works on all screen sizes  
+✅ **Animated UI** – Uses Framer Motion for smooth transitions  
 
-### Prerequisites
+---
 
-- [Node.js](https://nodejs.org/) (v14 or higher)
-- [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/)
+## 🛠 Technologies Used  
 
-### Installation
+| **Technology**  | **Usage**  |  
+|----------------|-----------|  
+| **React.js**   | Frontend framework  |  
+| **Tailwind CSS** | Styling and responsiveness  |  
+| **Framer Motion** | Animations and transitions  |  
+| **React Router** | Client-side routing  |  
+| **Axios** | API calls and HTTP requests  |  
+| **React Hook Form** | Form handling  |  
+| **Yup** | Form validation  |  
 
-1. **Clone the Repository**:
+---
 
-   ```bash
-   git clone https://github.com/ParamDhama/shortify-frontend.git
-   cd shortify-frontend
-   ```
+## 🚀 Getting Started  
 
-2. **Install Dependencies**:
+### 🔹 Prerequisites  
+Ensure you have the following installed:  
+- **Node.js v14+** ([Download](https://nodejs.org/))  
+- **npm** or **yarn** package manager  
 
-   Using npm:
-
-   ```bash
-   npm install
-   ```
-
-   Or using yarn:
-
-   ```bash
-   yarn install
-   ```
-
-### Running the Application
-
-To start the development server:
-
-Using npm:
+### 🔹 Installation  
 
 ```bash
-npm run dev
+git clone https://github.com/ParamDhama/shortify-frontend.git
+cd shortify-frontend
+npm install  # or yarn install
 ```
 
-Or using yarn:
+### 🔹 Running the Application  
 
 ```bash
-yarn dev
+npm run dev  # or yarn dev
 ```
+🔗 The app will be available at: **http://localhost:5173**  
 
-The application will be accessible at `http://localhost:5173`.
+---
 
-## Project Structure
-
-The project's directory structure is organized as follows:
+## 📂 Project Structure  
 
 ```
 shortify-frontend/
@@ -118,171 +115,134 @@ shortify-frontend/
 │   ├── App.jsx
 │   ├── main.jsx
 │   └── index.css
-├── .gitignore
 ├── package.json
 ├── README.md
 └── vite.config.js
 ```
 
-- `public/`: Static assets.
-- `src/api/`: API client and endpoint definitions.
-- `src/components/`: Reusable UI components.
-- `src/pages/`: Page components corresponding to routes.
-- `src/routes/`: Route definitions and configurations.
-- `src/utils/`: Utility functions and helpers.
-- `src/App.jsx`: Main application component.
-- `src/main.jsx`: Entry point for React.
-- `src/index.css`: Global styles.
+- **api/** – API handlers and endpoints  
+- **components/** – Reusable UI components  
+- **pages/** – Page components mapped to routes  
+- **routes/** – Route configurations  
+- **utils/** – Utility functions and helpers  
 
-## Routes and Pages
+---
 
-The application includes the following routes:
+## 🌍 Routes and Pages  
 
-- **Public Routes**:
-  - `/`: Home page
-  - `/redirect/:slug`: Redirects to the original URL based on the slug
-- **Authentication Routes**:
-  - `/auth/login`: User login
-  - `/auth/sign-up`: User registration
-  - `/auth/forgot-password`: Password recovery
-  - `/auth/reset-password/:token`: Reset password
-  - `/auth/verify/:token`: Email verification
-  - `/auth/resend-verify`: Resend verification email
-- **User Routes**:
-  - `/user/dashboard/*`: User dashboard with nested routes
-  - `/user/settings`: User settings
-- **Admin Routes**:
-  - `/admin`: Admin dashboard
-- **Miscellaneous**:
-  - `*`: 404 Not Found page
+| **Route** | **Description** |  
+|----------|--------------|  
+| `/` | Home Page |  
+| `/redirect/:slug` | Redirects to original URL |  
+| `/auth/login` | User Login |  
+| `/auth/sign-up` | User Registration |  
+| `/user/dashboard` | User Dashboard |  
+| `/admin` | Admin Panel |  
+| `*` | 404 Not Found |  
 
-## Components Overview
+---
 
-- **Dashboard Components**:
-  - `Sidebar`: Navigation menu for the dashboard.
-  - `DashboardCard`: Displays key metrics.
-  - `ChartComponent`: Visual representation of link statistics.
-  - `LinkTable`: Table of user's shortened URLs.
-  - `RecentLinks`: List of recently created links.
-  - `RecentQRCode`: QR codes for recent links.
-  - `ShortenUrl`: Form to create new shortened URLs.
-  - `Setting`: User settings and preferences.
-- **Authentication Components**:
-  - `Login`: User login form.
-  - `Register`: User registration form.
-  - `ForgotPassword`: Form to request password reset.
-  - `ResetPassword`: Form to set a new password.
-  - `VerifyEmail`: Email verification status.
-  - `ResendVerify`: Resend verification email form.
-- **Miscellaneous Components**:
-  - `ProtectedRoute`: Higher-order component to protect routes.
-  - `NotFound`: 404 error page.
+## 🔧 API Integration  
 
-## API Integration
+Uses **Axios** for handling HTTP requests:  
 
-The application interacts with a backend API for various operations:
+```javascript
+import apiClient from '../api/apiClient';
+import endpoints from '../api/endpoints';
 
-- **API Client**: Configured using Axios in `src/api/apiClient.js`. It includes default headers and interceptors for handling requests and responses.
-- **Endpoints**: Defined in `src/api/endpoints.js`. Example:
+const fetchUrls = async () => {
+  try {
+    const response = await apiClient.get(endpoints.url.GET_URLS);
+    console.log(response.data);
+  } catch (error) {
+    console.error("Error fetching URLs:", error);
+  }
+};
+```
 
-  ```javascript
-  const BASE_URL = 'http://localhost:5000';
+API Endpoints are stored in `endpoints.js` for easy management.  
 
-  const endpoints = {
-    url: {
-      GET_URLS: `${BASE_URL}/api/urls`,
-      CREATE_URL: `${BASE_URL}/api/urls`,
-      DELETE_URL: (slug) => `${BASE_URL}/api/urls/${slug}`,
-      // Add more endpoints as needed
-    },
-    auth: {
-      LOGIN: `${BASE_URL}/api/auth/login`,
-      REGISTER: `${BASE_URL}/api/auth/register`,
-      // Add more endpoints as needed
-    },
-  };
+---
 
-  export default endpoints;
-  ```
+## 🔑 Authentication and Authorization  
 
-- **Usage Example**:
+✔️ **JWT-based Authentication** – Secure login and access control  
+✔️ **Protected Routes** – Prevents unauthorized users from accessing pages  
+✔️ **Token Storage** – Uses localStorage for session persistence  
 
-  ```javascript
-  import apiClient from '../api/apiClient';
-  import endpoints from '../api/endpoints';
+Example **Protected Route**:  
 
-  const fetchUrls = async () => {
-    try {
-      const response = await apiClient.get(endpoints.url.GET_URLS);
-      // Handle response data
-    } catch (error) {
-      // Handle error
-    }
-  };
-  ```
+```javascript
+function ProtectedRoute({ element, isAdminRequired }) {
+  const isAuthenticated = !!localStorage.getItem("token");
+  
+  if (!isAuthenticated) return <Navigate to="/auth/login" />;
+  return element;
+}
+```
 
-## Authentication and Authorization
+---
 
-- **Authentication**: Managed using JWT tokens. Upon successful login or registration, a token is stored in `localStorage` and included in the `Authorization` header for subsequent API requests.
-- **Protected Routes**: The `ProtectedRoute` component ensures that only authenticated users can access certain routes. It checks for the presence of a valid token and redirects unauthenticated users to the login page.
+## ⚠️ Error Handling  
 
-## Error Handling
+- ✅ **Global Error Handling** – Uses Axios interceptors to catch API errors  
+- ✅ **Custom 404 Page** – Beautiful animated Not Found page  
+- ✅ **Try-Catch Blocks** – Ensures API calls handle failures properly  
+- ✅ **Form Validation** – Uses **Yup** and **React Hook Form** for error messages  
 
-- **Global Error Handling**: Implemented using Axios interceptors to catch API errors and provide user-friendly feedback.
-- **404 Page**: A custom animated 404 page using Framer Motion to enhance user experience when they visit an invalid URL.
-- **Try-Catch Blocks**: Ensures proper error handling in API calls and displays error messages when necessary.
-- **Form Validation**: Uses Yup and React Hook Form to validate user inputs, ensuring data integrity before sending requests.
+---
 
-## Styling
+## 🎨 Styling  
 
-- **Tailwind CSS**: Used for designing a modern, responsive, and highly customizable UI.
-- **Custom Scrollbar**: Styled scrollbar using the color `#0c5643` to match the theme.
-- **Framer Motion**: Added smooth animations for an enhanced user experience.
-- **Dark Mode Ready**: The app uses a dark-themed design by default with clean and professional-looking components.
+🟢 **Tailwind CSS** – Fast and responsive styles  
+🟢 **Custom Scrollbar** – Styled scrollbar using color `#0c5643`  
+🟢 **Framer Motion** – Beautiful animations for smooth user experience  
 
-## Contributing
+Example **Scrollbar Styling**:
 
-Contributions are welcome! If you’d like to improve the project, follow these steps:
+```css
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #0c5643;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+```
+
+---
+
+## 🤝 Contributing  
+
+🚀 Contributions are welcome!  
 
 1. **Fork the Repository**  
-   Click the “Fork” button at the top right of the repository page.
-
 2. **Clone Your Fork**  
    ```bash
-   git clone https://github.com/your-username/shortify-frontend.git
+   git clone https://github.com/ParamDhama/shortify-frontend.git
    cd shortify-frontend
    ```
-
 3. **Create a New Branch**  
    ```bash
    git checkout -b feature-name
    ```
-
-4. **Make Your Changes**  
-   Implement your improvements and ensure everything works properly.
-
-5. **Commit Your Changes**  
-   ```bash
-   git commit -m "Add feature-name"
-   ```
-
-6. **Push to Your Fork**  
-   ```bash
+4. **Make Your Changes & Push**  
+   ```bashhttps://github.com/ParamDhama/shortify-frontend.git
+   git commit -m "Add feature"
    git push origin feature-name
    ```
-
-7. **Submit a Pull Request**  
-   Open a pull request from your forked repository to the main project.
-
-## License
-
-This project is open-source and available under the [MIT License](LICENSE).
+5. **Submit a Pull Request**  
 
 ---
 
-### 💡 Notes:
-- Ensure the backend is running and accessible at `http://localhost:5000` (or update the `BASE_URL` in `endpoints.js`).
-- Make sure you have valid authentication credentials when testing protected routes.
-- If you encounter any issues, feel free to open an issue on the GitHub repository.
+## 📜 License  
 
-🚀 **Enjoy using the Shortify!** 🎯
+This project is open-source and available under the **MIT License**.  
+
+📌 **Enjoy using Shortify!** 🚀  
+
